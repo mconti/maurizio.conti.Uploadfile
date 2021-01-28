@@ -1,6 +1,7 @@
 ﻿ID;Ruolo;Nome;Cognome;OreLezione
-1;IDT;Onorio;Pompizii;18
-2;IDT;Fabio;Corbelli;18
-3;IDT;Pamela;Sanchini;18
-4;ITP;Maurizio;Conti;18
-5;ITP;Riccardo;Bianchi;18
+1;IDT;Donaldo;Briscola;18
+2;ITP;Renzo;Pagina;18
+3;ITP;Ristorante;Conigliera;18
+4;ITP;Telco;Cuoco;18
+5;IDT;Conto;Cancelli;18
+6;IDT;Stefano;Lavori;18
