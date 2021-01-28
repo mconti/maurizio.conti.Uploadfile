@@ -1,0 +1,35 @@
+﻿@model PersoneCSV
+
+@{
+    ViewData["Title"] = "ListPersone";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Elenco di persone</h1>
+</div>
+
+<span class="badge badge-success">@Model.FileName - @Model.Descrizione del @Model.Data</span>
+</br>
+<span class="badge badge-warning">@Model.ContentType (@Model.FileLength bytes)</span>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Cognome</th>
+      <th scope="col">Ore</th>
+      <th scope="col">Reddito</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Persona persona in Model)
+    {
+        <tr>
+            <th scope="row">@persona.Nome</th>
+            <td>@persona.Cognome</td>
+            <td>@persona.Ore</td>
+            <td>@persona.Reddito</td>
+        </tr>
+    }
+  </tbody>
+</table>
