@@ -29,6 +29,9 @@ namespace maurizio.conti.Uploadfile
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AppDomain.CurrentDomain.SetData("ContentRootPath", env.ContentRootPath);
+            AppDomain.CurrentDomain.SetData("WebRootPath", env.WebRootPath);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

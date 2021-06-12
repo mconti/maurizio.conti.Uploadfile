@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using maurizio.conti.Uploadfile.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Drawing;
 
 namespace maurizio.conti.Uploadfile.Controllers
 {
@@ -19,16 +20,41 @@ namespace maurizio.conti.Uploadfile.Controllers
         {
             _logger = logger;
         }
+
         public IActionResult Index()
         {
             return View( new PersoneFormFile() );
         }
 
         [HttpPost]
-        public IActionResult Index(PersoneFormFile formFile)
+        public async Task<IActionResult> Index(PersoneFormFile formFile)
         {
-            var persone = new PersoneCSV( formFile );
-            return View("ListPersone", persone);        
+            IFormFile file = formFile.MioFormFile;
+
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest();
+            }
+
+            Image img= null;
+
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                
+                using (img = Image.FromStream(memoryStream))
+                {
+                    //img.Save( MyServer.MapPath("wwwroot/images/Elenco1.png") );
+                    img.Save( MyServer.MapPath("wwwroot/images/" + file.FileName) );
+                }
+            }
+
+
+            //var persone = new PersoneCSV( formFile );
+            //return View("ListPersone", persone);        
+            
+            return View( new PersoneFormFile() );
+
         }
 
         public IActionResult Privacy()
