@@ -10,6 +10,12 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Drawing;
 
+// Link Utili
+// https://stackoverflow.com/questions/56161001/convert-iformfile-to-image-in-asp-core
+// https://devblogs.microsoft.com/dotnet/net-core-image-processing/
+// https://stackoverflow.com/questions/49398965/what-is-the-equivalent-of-server-mappath-in-asp-net-core
+// 
+
 namespace maurizio.conti.Uploadfile.Controllers
 {
     public class HomeController : Controller
